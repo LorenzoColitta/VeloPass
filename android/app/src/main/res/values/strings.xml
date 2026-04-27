@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VeloPass</string>
+    <string name="welcome_title">VeloPass</string>
+    <string name="welcome_tagline">Your Bike Maintenance Companion</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="continue_text">Continue</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="sign_in_google">Sign in with Google</string>
+    <string name="sign_in_apple">Sign in with Apple</string>
+    <string name="display_name">Display Name</string>
+    <string name="nationality">Nationality</string>
+    <string name="select_nationality">Select Nationality</string>
+    <string name="living_in_same_country">Living in same country?</string>
+    <string name="legal_residence">Legal Residence Country</string>
+    <string name="enable_notifications">Enable Notifications</string>
+    <string name="register_first_bike">Register your first bike now?</string>
+    <string name="skip_to_dashboard">Skip to Dashboard</string>
+    <string name="home">Home</string>
+    <string name="my_bikes">My Bikes</string>
+    <string name="maintenance">Maintenance</string>
+    <string name="documents">Documents</string>
+    <string name="profile">Profile</string>
+    <string name="specimen_bike">Specimen Bike 2024</string>
+    <string name="registration_number">Registration Number</string>
+    <string name="vos_number">VOS Number</string>
+    <string name="upcoming_maintenance">Upcoming Maintenance</string>
+    <string name="register_new_bike">Register New Bike</string>
+    <string name="onboarding_welcome">Welcome to VeloPass</string>
+    <string name="onboarding_value_prop">Register, Maintain, Archive</string>
+    <string name="onboarding_account">Create Your Account</string>
+    <string name="onboarding_profile">Complete Your Profile</string>
+    <string name="onboarding_notifications">Stay Updated</string>
+    <string name="onboarding_bike">Your First Bike</string>
+</resources>
