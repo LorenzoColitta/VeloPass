@@ -1,0 +1,12 @@
+{
+  "name": "bikeindex-sync",
+  "version": "1.0.0",
+  "description": "OAuth2 authentication and bike verification with BikeIndex API",
+  "main": "src/main.js",
+  "runtime": "node:18",
+  "entrypoint": "src/main.js",
+  "dependencies": {
+    "node-appwrite": "^14.0.0"
+  },
+  "devDependencies": {}
+}

@@ -389,28 +389,97 @@ fun Step6BikeIndex(state: WizardState, viewModel: RegistrationWizardViewModel) {
                 )
             }
         }
-        if (state.bikeIndexConnected) {
-            item {
-                Button(
-                    onClick = { },
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Text("Sign in with BikeIndex")
-                }
-            }
+        
+        if (!state.bikeIndexConnected) {
             item {
                 Text(
-                    state.bikeIndexUsername?.let { "Connected as $it" } ?: "Connecting...",
-                    style = MaterialTheme.typography.bodySmall
+                    "Optional — can be done later",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         } else {
             item {
                 Text(
-                    "Not connected",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.error
+                    "Select an option:",
+                    style = MaterialTheme.typography.bodySmall
                 )
+            }
+            
+            item {
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = CardDefaults.cardColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceVariant
+                    )
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(12.dp),
+                        verticalArrangement = Arrangement.spacedBy(12.dp)
+                    ) {
+                        // Option 1
+                        Column(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            Text(
+                                "I am already connected to BikeIndex",
+                                style = MaterialTheme.typography.labelMedium
+                            )
+                            Button(
+                                onClick = { },
+                                modifier = Modifier.fillMaxWidth(),
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = MaterialTheme.colorScheme.primary
+                                )
+                            ) {
+                                Text("Link this bike")
+                            }
+                        }
+                        
+                        Divider(modifier = Modifier.padding(vertical = 8.dp))
+                        
+                        // Option 2
+                        Column(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            Text(
+                                "I want to connect now",
+                                style = MaterialTheme.typography.labelMedium
+                            )
+                            Button(
+                                onClick = { },
+                                modifier = Modifier.fillMaxWidth(),
+                                colors = ButtonDefaults.buttonColors(
+                                    containerColor = MaterialTheme.colorScheme.primary
+                                )
+                            ) {
+                                Text("Sign in with BikeIndex")
+                            }
+                        }
+                        
+                        Divider(modifier = Modifier.padding(vertical = 8.dp))
+                        
+                        // Option 3
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text(
+                                "I'll do this later",
+                                style = MaterialTheme.typography.labelMedium
+                            )
+                            Switch(
+                                checked = false,
+                                onCheckedChange = { viewModel.toggleBikeIndex() }
+                            )
+                        }
+                    }
+                }
             }
         }
     }

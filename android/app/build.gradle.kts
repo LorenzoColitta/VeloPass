@@ -31,6 +31,12 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BIKEINDEX_CLIENT_ID", "\"${System.getenv("BIKEINDEX_CLIENT_ID") ?: "test-client-id"}\"")
+            buildConfigField("String", "OAUTH_REDIRECT_URI", "\"velopass://oauth-callback\"")
+        }
+        debug {
+            buildConfigField("String", "BIKEINDEX_CLIENT_ID", "\"${System.getenv("BIKEINDEX_CLIENT_ID") ?: "test-client-id"}\"")
+            buildConfigField("String", "OAUTH_REDIRECT_URI", "\"velopass://oauth-callback\"")
         }
     }
 
@@ -121,6 +127,9 @@ dependencies {
 
     // Google OAuth
     implementation("com.google.android.gms:play-services-auth:20.7.0")
+
+    // Chrome Custom Tabs
+    implementation("androidx.browser:browser:1.7.0")
 
     // Testing
     testImplementation("junit:junit:4.13.2")

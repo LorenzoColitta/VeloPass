@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.velopass.app.data.VeloPassDatabase
 import com.velopass.app.data.BikeDao
 import com.velopass.app.data.BikeRepository
+import com.velopass.app.data.BikeIndexRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -59,5 +60,13 @@ object AppModule {
         httpClient: HttpClient
     ): BikeRepository {
         return BikeRepository(bikeDao, httpClient)
+    }
+
+    @Provides
+    @Singleton
+    fun providesBikeIndexRepository(
+        httpClient: HttpClient
+    ): BikeIndexRepository {
+        return BikeIndexRepository(httpClient)
     }
 }
