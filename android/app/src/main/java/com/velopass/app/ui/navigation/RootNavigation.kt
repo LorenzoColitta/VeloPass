@@ -4,12 +4,16 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 import com.velopass.app.ui.screens.onboarding.OnboardingScreen
 import com.velopass.app.ui.screens.home.HomeScreen
 import com.velopass.app.ui.screens.MyBikesScreen
 import com.velopass.app.ui.screens.MaintenanceScreen
 import com.velopass.app.ui.screens.DocumentsScreen
 import com.velopass.app.ui.screens.ProfileScreen
+import com.velopass.app.ui.screens.registration.RegistrationWizardScreen
+import com.velopass.app.ui.screens.bikes.BikeDetailScreen
 
 @Composable
 fun RootNavigation() {
@@ -34,7 +38,28 @@ fun RootNavigation() {
         }
 
         composable("my_bikes") {
-            MyBikesScreen()
+            MyBikesScreen(navController = navController)
+        }
+
+        composable("bikes/register") {
+            // TODO: Get userId, nationalityCode, legalResidenceCode from auth/session
+            RegistrationWizardScreen(
+                navController = navController,
+                userId = "test-user-id",
+                nationalityCode = "NL",
+                legalResidenceCode = "NL"
+            )
+        }
+
+        composable(
+            "bikes/{id}",
+            arguments = listOf(navArgument("id") { type = NavType.StringType })
+        ) { backStackEntry ->
+            val bikeId = backStackEntry.arguments?.getString("id") ?: ""
+            BikeDetailScreen(
+                bikeId = bikeId,
+                navController = navController
+            )
         }
 
         composable("maintenance") {

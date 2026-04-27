@@ -1,0 +1,12 @@
+{
+  "name": "generate-registration",
+  "version": "1.0.0",
+  "description": "Generate bike registration numbers with atomic collision detection",
+  "main": "src/main.js",
+  "runtime": "node:18",
+  "entrypoint": "src/main.js",
+  "dependencies": {
+    "node-appwrite": "^14.0.0"
+  },
+  "devDependencies": {}
+}

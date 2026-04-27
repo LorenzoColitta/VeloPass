@@ -1,0 +1,80 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Persönliches Fahrradregistrierungszertifikat</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    .header { text-align: center; margin-bottom: 30px; }
+    .header h1 { font-size: 24px; margin: 0; }
+    .header p { font-size: 12px; color: #666; margin: 5px 0; }
+    .section { margin: 20px 0; page-break-inside: avoid; }
+    .section h2 { font-size: 14px; font-weight: bold; border-bottom: 1px solid #333; padding-bottom: 5px; margin: 10px 0; }
+    .section p { margin: 5px 0; font-size: 11px; }
+    .code-section { text-align: center; margin: 20px 0; }
+    .short-code { font-size: 28px; font-weight: bold; font-family: monospace; }
+    .full-code { font-size: 11px; font-family: monospace; margin-top: 10px; }
+    .qr-code { display: inline-block; margin-left: 20px; vertical-align: middle; }
+    .attestation { border: 1px solid #999; padding: 15px; margin: 20px 0; font-size: 11px; }
+    .signature-lines { margin-top: 30px; font-size: 11px; }
+    .signature-lines div { margin: 20px 0; }
+    .footer { text-align: center; font-size: 9px; color: #999; margin-top: 40px; border-top: 1px solid #999; padding-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>VeloPass</h1>
+    <p>Persönliches Fahrradregistrierungszertifikat</p>
+    <p>Doc #: {{bike.id}} | Ausgestellt: {{generateDate}}</p>
+  </div>
+
+  <div class="code-section">
+    <span class="short-code">{{bike.shortRegNumber}}</span>
+    <span class="qr-code">[QR-Code]</span>
+    <div class="full-code">Vollständiger Code: {{bike.fullRegNumber}}</div>
+  </div>
+
+  <div class="section">
+    <h2>Eigentümerinformationen</h2>
+    <p><strong>Name:</strong> {{user.displayName}}</p>
+    <p><strong>Nationalität:</strong> {{user.nationality}}</p>
+    <p><strong>Rechtlicher Wohnsitz:</strong> {{user.legalResidence}}</p>
+  </div>
+
+  <div class="section">
+    <h2>Fahrraddetails</h2>
+    <p><strong>Hersteller:</strong> {{bike.make}}</p>
+    <p><strong>Modell:</strong> {{bike.model}}</p>
+    <p><strong>Jahr:</strong> {{bike.year}}</p>
+    <p><strong>Rahmentyp:</strong> {{bike.frameType}}</p>
+    <p><strong>Farbe:</strong> {{bike.colour}}</p>
+    <p><strong>Material:</strong> {{bike.frameMaterial}}</p>
+    <p><strong>Seriennummer:</strong> {{#if bike.serialNumber}}{{bike.serialNumber}}{{else}}Nicht angegeben{{/if}}</p>
+  </div>
+
+  <div class="section">
+    <h2>BikeIndex-Registrierung</h2>
+    {{#if bike.bikeIndexId}}
+    <p><strong>ID:</strong> {{bike.bikeIndexId}}</p>
+    <p><strong>Link:</strong> <a href="https://bikeindex.org/bikes/{{bike.bikeIndexId}}">https://bikeindex.org/bikes/{{bike.bikeIndexId}}</a></p>
+    {{else}}
+    <p>Nicht cross-registriert</p>
+    {{/if}}
+  </div>
+
+  <div class="attestation">
+    <p>Ich, {{user.displayName}}, bestätige, dass die obigen Informationen nach meinem besten Wissen korrekt sind.</p>
+  </div>
+
+  <div class="signature-lines">
+    <div>Name (Druckschrift): _______________________________</div>
+    <div>Unterschrift: _______________________________</div>
+    <div>Datum: _______________________________</div>
+  </div>
+
+  <div class="footer">
+    <p>VeloPass - https://github.com/VeloPass</p>
+    <p>Generiert: {{generatedAt}}</p>
+    <p>Nur für den persönlichen Gebrauch</p>
+  </div>
+</body>
+</html>
