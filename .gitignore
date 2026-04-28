@@ -36,6 +36,7 @@ gen/
 out/
 dist/
 
-# project related
-*.mdgradle/
-android/gradle-*.zip
+# Markdown files (except README)
+*.md
+!README.md
+gradle/
