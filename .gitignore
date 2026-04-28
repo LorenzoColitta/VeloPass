@@ -37,4 +37,5 @@ out/
 dist/
 
 # project related
-*.md
+*.mdgradle/
+android/gradle-*.zip
