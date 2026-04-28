@@ -42,7 +42,7 @@ jobs:
           -Pandroid.injected.signing.key.password=$SIGNING_KEY_PASSWORD
 
     - name: Upload Release APK
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: success()
       with:
         name: app-release.apk
