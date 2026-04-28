@@ -1,7 +1,13 @@
 package com.velopass.app
 
-import dagger.hilt.android.HiltAndroidApp
 import android.app.Application
+import com.google.firebase.FirebaseApp
+import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class VeloPassApp : Application()
+class VeloPassApp : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        FirebaseApp.initializeApp(this)
+    }
+}
