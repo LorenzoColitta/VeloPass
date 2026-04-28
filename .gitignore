@@ -35,3 +35,6 @@ bin/
 gen/
 out/
 dist/
+
+# project related
+*.md
