@@ -16,6 +16,7 @@ import com.velopass.app.ui.screens.registration.RegistrationWizardScreen
 import com.velopass.app.ui.screens.bikes.BikeDetailScreen
 import com.velopass.app.ui.screens.bikeindex.BikeIndexConnectScreen
 import com.velopass.app.ui.screens.bikeindex.BikeIndexVerifyScreen
+import com.velopass.app.ui.screens.account.AccountScreen
 
 @Composable
 fun RootNavigation() {
@@ -73,7 +74,7 @@ fun RootNavigation() {
         }
 
         composable("profile") {
-            ProfileScreen()
+            AccountScreen(navController = navController)
         }
 
         composable("profile/bikeindex") {
